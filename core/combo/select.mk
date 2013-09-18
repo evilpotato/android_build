@@ -46,8 +46,8 @@ $(combo_target)HAVE_STRLCPY := 0
 $(combo_target)HAVE_STRLCAT := 0
 $(combo_target)HAVE_KERNEL_MODULES := 0
 
-$(combo_target)GLOBAL_CFLAGS := -fno-exceptions -Wno-multichar
-$(combo_target)RELEASE_CFLAGS := -O3 -g -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -Wstrict-aliasing=3 -Werror=strict-aliasing -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model
+$(combo_target)GLOBAL_CFLAGS := -fno-exceptions -Wno-multichar -Wno-error=unused-parameter -Wno-unused-parameter -Wno-error= unused-but-set-variable -Wno-unused-but-set-variable
+$(combo_target)RELEASE_CFLAGS := -O3 -g -fno-tree-vectorize -fno-inline-functions -fno-unswitch-loops -Wstrict-aliasing=3 -Werror=strict-aliasing -fgcse-after-reload -fno-ipa-cp-clone -fno-vect-cost-model -Wno-error=unused-parameter -Wno-unused-parameter -Wno-error= unused-but-set-variable -Wno-unused-but-set-variable
 $(combo_target)GLOBAL_LDFLAGS := -Wl,-O2
 $(combo_target)GLOBAL_ARFLAGS := crsP
 
