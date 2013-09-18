@@ -147,7 +147,7 @@ TARGET_GLOBAL_CFLAGS += \
 			$(arch_variant_cflags) \
 			-Wno-error=unused-parameter \
 			-Wno-unused-parameter \
-			-Wno-error= unused-but-set-variable \
+			-Wno-error=unused-but-set-variable \
 			-Wno-unused-but-set-variable
 
 android_config_h := $(call select-android-config-h,linux-arm)
