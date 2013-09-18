@@ -88,7 +88,11 @@ TARGET_arm_CFLAGS :=    -O3 \
                         -Werror=strict-aliasing \
                         -fgcse-after-reload \
                         -fno-ipa-cp-clone \
-                        -fno-vect-cost-model
+                        -fno-vect-cost-model \
+                        -Wno-error=unused-parameter \
+                        -Wno-unused-parameter \
+                        -Wno-error= unused-but-set-variable \
+                        -Wno-unused-but-set-variable
 
 # Modules can choose to compile some source as thumb.
 TARGET_thumb_CFLAGS :=  -mthumb \
@@ -102,7 +106,11 @@ TARGET_thumb_CFLAGS :=  -mthumb \
                         -Werror=strict-aliasing \
                         -fgcse-after-reload \
                         -fno-ipa-cp-clone \
-                        -fno-vect-cost-model
+                        -fno-vect-cost-model \
+                        -Wno-error=unused-parameter \
+                        -Wno-unused-parameter \
+                        -Wno-error= unused-but-set-variable \
+                        -Wno-unused-but-set-variable
 
 # Set FORCE_ARM_DEBUGGING to "true" in your buildspec.mk
 # or in your environment to force a full arm build, even for
@@ -136,7 +144,11 @@ TARGET_GLOBAL_CFLAGS += \
 			-Werror=format-security \
 			-D_FORTIFY_SOURCE=1 \
 			-fno-short-enums \
-			$(arch_variant_cflags)
+			$(arch_variant_cflags) \
+			-Wno-error=unused-parameter \
+			-Wno-unused-parameter \
+			-Wno-error= unused-but-set-variable \
+			-Wno-unused-but-set-variable
 
 android_config_h := $(call select-android-config-h,linux-arm)
 TARGET_ANDROID_CONFIG_CFLAGS := -include $(android_config_h) -I $(dir $(android_config_h))
@@ -148,8 +160,8 @@ TARGET_GLOBAL_CFLAGS += $(TARGET_ANDROID_CONFIG_CFLAGS)
 # by turning off the builtin sin function.
 ifneq ($(filter 4.6 4.6.% 4.7 4.7.% 4.8 4.8.% 4.9 4.9.%, $(TARGET_GCC_VERSION_AND)),)
 ifneq ($(filter 4.6 4.6.% 4.7 4.7.% 4.8 4.8.% 4.9 4.9.%, $(TARGET_GCC_VERSION_ARM)),)
-TARGET_GLOBAL_CFLAGS += -Wno-unused-but-set-variable -fno-builtin-sin \
-			-fno-strict-volatile-bitfields
+TARGET_GLOBAL_CFLAGS += -Wno-unused-but-set-variable -Wno-unused-parameter -fno-builtin-sin \
+			-fno-strict-volatile-bitfields 
 endif
 endif
 
@@ -186,7 +198,11 @@ TARGET_RELEASE_CFLAGS := \
 			-frename-registers \
 			-Werror=strict-aliasing \
 			-fno-ipa-cp-clone \
-			-fno-vect-cost-model
+			-fno-vect-cost-model \
+			-Wno-error=unused-parameter \
+			-Wno-unused-parameter \
+			-Wno-error= unused-but-set-variable \
+			-Wno-unused-but-set-variable
 
 libc_root := bionic/libc
 libm_root := bionic/libm
